@@ -425,6 +425,7 @@ nav > a p {
 .home-activities .resp-fig {
     display: none;
 }
+
 @media only screen and (max-width: 1000px) {
     .home-activities main {
         flex-direction: column !important;
@@ -455,6 +456,9 @@ nav > a p {
     .home-activities .fa-chevron-right {
         display: none;
     }
+    .h-btn {
+        display: none;
+    }
 }
 @media only screen and (max-width: 600px) {
     #home-activity-fig-div1 {
@@ -483,6 +487,7 @@ nav > a p {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-height: 800px;
 }
 .quote-parallax main {
     margin: auto !important;
@@ -512,4 +517,62 @@ nav > a p {
     .quote-parallax p {
         font-size: 16px;
     }
+}
+.home-join-us {
+    margin-top: 100px;
+}
+.home-join-us h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #986E36;
+}
+.home-join-us main {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.the-registration-form {
+    border-radius: 50px;
+}
+.input-duo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.home-join-us form {
+    display: flex;
+    gap: 30px;
+    box-shadow: 10px 10px 35px -17px rgba(0,0,0,0.75);
+    padding: 40px;
+    border-radius: 20px;
+}
+.home-join-us form figure {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.input-duo > input, .input-duo > select, .input-duo > textarea {
+    width: 500px;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px #E6EBEF solid;
+}
+.home-join-us textarea {
+    height: 100px;
+}
+.home-join-us input::placeholder, .specific-placeholder, .home-join-us textarea::placeholder {
+    color: rgb(109, 106, 106);
+    font-size: 16px;
+}
+.the-submit-button {
+    background-color: #986E36;
+    border: none;
+    padding: 15px 30px;
+    color: white;
+    font-size: 20px;
+}
+.home-join-us label, .home-join-us p {
+    font-size: 18px;
+    color: #474747;
 }

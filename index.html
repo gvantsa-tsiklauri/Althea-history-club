@@ -106,7 +106,7 @@
           <div class="home-activities">
             <header>
               <a href="pages/activities.html">ჩატარებული აქტივობები</a>
-              <a href="pages/activities.html" class="primary-button">ნახე მეტი  &nbsp;&nbsp;  <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></a>
+              <a href="pages/activities.html" class="primary-button h-btn">ნახე მეტი  &nbsp;&nbsp;  <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></a>
             </header>
             <main>
               <figure>
@@ -180,9 +180,63 @@
         </div>
         <div class="main-home-div">
 
+          <!-- QUOTE PARALLAX THING  -->
+          <div class="home-join-us">
+            <header>
+              <h2 href="pages/activities.html">შემოგვიერთდი!</h2>
+            </header>
+            <main>
+              <!-- <iframe class="the-registration-form" width="80%" height="800px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=POnSYT1CtEOPIxWAwjQZUp_fFpEPv7VAnrXV365O5itUOTg0OVkxTFo2QTFYNlE3RzBJTVFERDAzOC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe> -->
+               <form action="">
+                <figure>
+                  <div class="input-duo">
+                    <label for="registration-name">სახელი და გვარი</label>
+                    <input id="registration-name" type="text" placeholder="სახელი და გვარი">
+                  </div>
+                  <div class="input-duo">
+                    <label for="registration-class">კლასი</label>
+                    <select name="class" id="registration-class">
+                      <option value="volvo" hidden class="specific-placeholder" >აირჩიე კლასი</option>
+                      <option value="volvo">VII კლასი</option>
+                      <option value="saab">VIII კლასი</option>
+                      <option value="mercedes">IX კლასი</option>
+                      <option value="audi">X კლასი</option>
+                      <option value="audi">XI კლასი</option>
+                      <option value="audi">XII კლასი</option>
+                    </select>
+                  </div>
+                  <div class="input-duo">
+                    <label for="registration-reason">რატომ გსურთ კლუბში გაწევრიანება?</label>
+                    <textarea name="reason" id="registration-reason" placeholder="კლუბში გაწევრიანება მინდა, რადგან..."></textarea>
+                  </div>
+                </figure>
+                <figure>
+                  <div class="input-duo">
+                    <label for="registration-email">შეიყვანე შენი თიმსის იმეილი</label>
+                    <input type="email" name="email" id="registration-email" placeholder="john.doe@students.ges.gov.ge">
+                  </div>
+                  <div class="input-duo">
+                    <label for="registration-personal-email">შეიყვანე შენი პირადი იმეილი</label>
+                    <input type="email" name="personal-email" id="registration-personal-email" placeholder="john.doe@gmail.com">
+                  </div>
+                  <div class="input-duo-radio">
+                    <p style="margin-bottom: 15px;" for="">ხარ 23-ე საჯარო სკოლის მოსწავლე?</p>
+                    <input type="radio" id="registration-radio-yes" name="yesorno" value="yes">
+                    <label for="registration-radio-yes">დიახ</label>
+                    <input type="radio" value="no" name="yesorno" id="registration-radio-no">
+                    <label for="registration-radio-no">არა</label>
+                  </div>
+                  <input type="submit" class="primary-button" style="width: 100%;" >
+                </figure>
+
+               </form>
+            </main>
+          </div>
         </div>
       </section>
     </main>
-    <footer></footer>
+    <footer>
+
+    </footer>
 </body>
 </html>
