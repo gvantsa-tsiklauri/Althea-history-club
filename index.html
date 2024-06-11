@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ალთეა - ისტორიის კლუბი</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <script src="https://kit.fontawesome.com/9a19f5c611.js" crossorigin="anonymous"></script>
+</head>
+<body>
+      <!-- HEADER STARTS HERE -->
+    <header class=" animate__animated animate__fadeInDown first-header">
+        <nav>
+            <a href="index.html">
+                <img src="images/Logo.png" width="50px" alt="Club Logo">
+                <p class="nav-title">ალთეა</p>
+            </a>
+            <ul id="ulthing">
+                <li>
+                    <a href="/index.html" class="nav-active">მთავარი</a>
+                    <div class="underline"></div>
+                </li>
+                <li>
+                    <a href="pages/about.html">ჩვენს შესახებ</a>
+                </li>
+                <li>
+                    <a href="pages/activities.html">აქტივობები</a>
+                </li>
+                <li>
+                    <a href="pages/blogPage.html">ბლოგები</a>
+                </li>
+                <li>
+                    <a href="pages/contact.html">კონტაქტი</a>
+                </li>
+            </ul>
+            <div class="nav-burger">
+                <i class="fa-solid fa-bars-staggered" id="burger-icon" style="color: #ffffff;"></i>
+            </div>
+            <script>
+                document.getElementById('burger-icon').addEventListener('click', function() {
+                    const element = this;
+                    const ulthing = document.getElementById('ulthing');
+                    if (element.classList.contains('fa-bars-staggered')) {
+                        element.classList.remove('fa-bars-staggered');
+                        element.classList.add('fa-x');
+                        ulthing.classList.add('active');
+                    } else {
+                        element.classList.remove('fa-x');
+                        element.classList.add('fa-bars-staggered');
+                        ulthing.classList.remove('active');
+                    }
+                });
+            </script>
+        </nav>
+    </header>
+
+    <!-- HEADER ENDS HERE -->
+     
+    <!-- MAIN PART STARTS HERE -->
+    <main>
+      <!-- TITLE SECTION -->
+      <div class="hero-section">
+        <div class="back-img"></div>
+        <div class="titlehome">
+          <h2 class="animate__animated animate__fadeInLeft" >ალთეა</h2>
+          <p class="animate__animated animate__fadeInLeft">სსიპ ილია ჭავჭავაძის სახელობის 23-ე საჯარო სკოლის ისტორიის კლუბი</p>
+        </div>
+      </div>
+      <!-- ACTUAL MAIN THINGS -->
+      <section class="main-home">
+        <div class="main-home-div">
+          
+          <!-- WHO WE ARE  -->
+          <article class="home-who-we-are">
+            <figure>
+              <a class="wwa-title" href="pages/about.html">ალთეა - ისტორიის კლუბი</a>
+              <p>ალთეა ჩამოყალიბდა 2024 წელს, იტორიის მოყვარულების მიერ, ისტორიის მოყვარულთათვის. კლუბში ყოველდღიურად იგეგმება მრავალი აქტივობა, ტარდება მრავალი ლექცია, სადაც ახალგაზრდებს საშუალება ეძლევათ ისაუბრონ მათ საყვარელ თემებზე და გაეცნონ მათი თანატოლების მიერ<a href="/pages/about.html" style=" font-weight: 600; color: rgb(69, 69, 69);">....</a> <p>
+              <a href="pages/about.html" class="primary-button">ნახე მეტი  &nbsp;&nbsp;   <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></a>
+            </figure>
+            <aside id="img2" ></aside>
+          </article>
+
+          <!-- THE CIRCLE THINGS  -->
+          <div class="circles">
+            <figure>
+              <div class="circle">
+                <i class="fa-solid fa-person-chalkboard" style="color: #ffffff;"></i>              </div>
+                <span>ყოველკვირეული საინტერესო ინფორმაციით დატვირთული შეხვედრები</span>
+            </figure>
+            <figure>
+              <div class="circle">
+                <i class="fa-solid fa-landmark" style="color: #ffffff;"></i>
+              </div>
+                <span>კლუბის მრავალი სახალისო და შემეცნებითი, გასვლითი ან შიდა აქტივობა</span>
+            </figure>
+            <figure>
+              <div class="circle">
+                <i class="fa-solid fa-users" style="color: #ffffff;"></i>
+              </div>
+                <span>მეგობრული საზოგადოება, სადაც ყველა ერთმანეთის აზრს პატივს სცემს</span>
+            </figure>
+          </div>
+          <!-- ACTIVTIES EXAMPLE CARDS  -->
+          <div class="home-activities">
+            <header>
+              <a href="pages/activities.html">ჩატარებული აქტივობები</a>
+              <a href="pages/activities.html" class="primary-button">ნახე მეტი  &nbsp;&nbsp;  <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></a>
+            </header>
+            <main>
+              <figure>
+                <div id="home-activity-fig-div1">
+                  <article>
+                    <div class="activity-card-pic ac-p-1"></div>
+                    <div class="activity-card-body">
+                      <h4>სათაური</h4>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, magni suscipit...</p>
+                      <a href="/pages/activityPage.html" style="align-self: flex-end;" class="primary-button-sm">დეტალურად</a>
+                    </div>
+                  </article>
+                  <article>
+                    <div class="activity-card-pic ac-p-2"></div>
+                    <div class="activity-card-body">
+                      <h4>სათაური</h4>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, magni suscipit...</p>
+                      <a href="/pages/activityPage.html" style="align-self: flex-end;" class="primary-button-sm">დეტალურად</a>
+                    </div>
+                  </article>
+                </div>
+                <div id="home-activity-fig-div2" style="margin-top: 20px;">
+                  <article>
+                    <div class="activity-card-pic ac-p-3"></div>
+                    <div class="activity-card-body">
+                      <h4>სათაური</h4>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, magni suscipit...</p>
+                      <a href="/pages/activityPage.html" style="align-self: flex-end;" class="primary-button-sm">დეტალურად</a>
+                    </div>
+                  </article>
+                </div>
+              </figure>
+              <aside>
+                <article style="height: 100%; display: flex; flex-direction: column;">
+                  <div class="activity-card-pic ac-p-4" style="flex: 1;"></div>
+                  <div class="activity-card-body">
+                    <h4>სათაური</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, magni suscipit...</p>
+                    <a href="/pages/activityPage.html" style="align-self: flex-end;" class="primary-button-sm">დეტალურად</a>
+                  </div>
+                </article>
+              </aside>
+              <figure class="resp-fig">
+                <article style="height: 100%; display: flex; flex-direction: column;">
+                  <div class="activity-card-pic ac-p-4" style="flex: 1;"></div>
+                  <div class="activity-card-body">
+                    <h4>სათაური</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, magni suscipit...</p>
+                    <a href="/pages/activityPage.html" style="align-self: flex-end;" class="primary-button-sm">დეტალურად</a>
+                  </div>
+                </article>
+                <article>
+                  <div class="activity-card-pic ac-p-3"></div>
+                  <div class="activity-card-body">
+                    <h4>სათაური</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, magni suscipit...</p>
+                    <a href="/pages/activityPage.html" style="align-self: flex-end;" class="primary-button-sm">დეტალურად</a>
+                  </div>
+                </article>
+              </figure>
+            </main>
+          </div>
+
+        </div>
+        <!-- QUOTE PARALLAX THING  -->
+        <div class="quote-parallax">
+          <main>
+            <h2 class="quote-text">"რაც უფრო მეტი იცი ისტორიაზე, მით უფრო მზად იქნები მომავლისთვის."</h2>
+            <p style="align-self: flex-end;">- თეოდორ რუზველტი</p>
+          </main>
+        </div>
+        <div class="main-home-div">
+
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ალთეა - ბლოგი</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <script src="https://kit.fontawesome.com/9a19f5c611.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class=" animate__animated animate__fadeInDown">
+        <nav>
+            <a href="../index.html">
+                <img src="../images/Logo.png" width="50px" alt="Club Logo">                <p class="nav-title">ალთეა</p>
+            </a>
+            <ul id="ulthing">
+                <li>
+                    <a href="../index.html" >მთავარი</a>
+                </li>
+                <li>
+                    <a href="about.html" >ჩვენს შესახებ</a>
+                </li>
+                <li>
+                    <a href="activities.html">აქტივობები</a>
+                </li>
+                <li>
+                    <a href="blogs.html" class="nav-active">ბლოგები</a>
+                    <div class="underline"></div>
+
+                </li>
+                <li>
+                    <a href="contact.html">კონტაქტი</a>
+                </li>
+            </ul>
+            <div class="nav-burger">
+                <i class="fa-solid fa-bars-staggered" id="burger-icon" style="color: #ffffff;"></i>
+            </div>
+            <script>
+                document.getElementById('burger-icon').addEventListener('click', function() {
+                    const element = this;
+                    const ulthing = document.getElementById('ulthing');
+                    if (element.classList.contains('fa-bars-staggered')) {
+                        element.classList.remove('fa-bars-staggered');
+                        element.classList.add('fa-x');
+                        ulthing.classList.add('active');
+                    } else {
+                        element.classList.remove('fa-x');
+                        element.classList.add('fa-bars-staggered');
+                        ulthing.classList.remove('active');
+                    }
+                });
+            </script>
+        </nav>
+    </header>
+</body>
+</html>
