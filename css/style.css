@@ -7,6 +7,10 @@
     src: url(../fonts/arial_geo.ttf);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 header.first-header {
     padding: 10px 0;
     background-color: rgba(0, 0, 0, 0.4);
@@ -48,7 +52,7 @@ ul li {
     position: relative;
 }
 
-ul li::before {
+header ul li::before {
     content: '';
     position: absolute;
     width: 0;
@@ -59,7 +63,7 @@ ul li::before {
     transition: 0.3s all ease-in-out;
 }
 
-ul li:hover::before {
+header ul li:hover::before {
     width: 100%;
     left: 0;
 }
@@ -150,7 +154,7 @@ nav > a p {
     position: relative;
     height: 100vh;
     margin-top: -70px;
-    max-height: 800px;
+    max-height: 1000px;
     width: 100%;
     overflow: hidden;
 }
@@ -527,7 +531,7 @@ nav > a p {
     color: #986E36;
 }
 .home-join-us main {
-    margin-top: 30px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
 }
@@ -540,6 +544,7 @@ nav > a p {
     gap: 15px;
 }
 .home-join-us form {
+    width: 100%;
     display: flex;
     gap: 30px;
     box-shadow: 10px 10px 35px -17px rgba(0,0,0,0.75);
@@ -550,16 +555,19 @@ nav > a p {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
 }
 .input-duo > input, .input-duo > select, .input-duo > textarea {
-    width: 500px;
+    width: 100%;
     border: none;
     padding: 15px;
     border-radius: 12px;
     border: 2px #E6EBEF solid;
+    outline: none;
 }
 .home-join-us textarea {
     height: 100px;
+    resize: none;
 }
 .home-join-us input::placeholder, .specific-placeholder, .home-join-us textarea::placeholder {
     color: rgb(109, 106, 106);
@@ -575,4 +583,63 @@ nav > a p {
 .home-join-us label, .home-join-us p {
     font-size: 18px;
     color: #474747;
+}
+input:focus, textarea:focus {
+    border-color: #b6884b !important;
+    box-shadow: 0 0 5px rgba(243, 154, 113, 0.5);
+}
+@media only screen and (max-width: 900px) {
+    .home-join-us form {
+        flex-direction: column;
+    }
+}
+footer {
+    padding: 40px;
+    width: 100%;
+    background-color: #868686;
+}
+
+footer > div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+footer figure a:first-child {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+footer figure .nav-title {
+    font-size: 25px;
+    color: #fff;
+}
+footer ul li a {
+    color: white;
+    font-size: 16px;
+}
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+footer figure h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+@media only screen and (max-width: 768px) {
+    footer > div figure:first-child {
+        display: none !important;
+    }
+}
+@media only screen and (max-width: 600px) {
+    footer > div  {
+       flex-direction: column;
+       gap: 20px;
+    }
 }
