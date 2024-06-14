@@ -10,7 +10,12 @@
 html {
     scroll-behavior: smooth;
 }
-
+.the-blog-body {
+    background-image: url(../images/parallax-other-pages.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 header.first-header {
     padding: 10px 0;
     background-color: rgba(0, 0, 0, 0.4);
@@ -160,30 +165,44 @@ nav > a p {
 }
 
 .back-img {
-    background-image: url("../images/parallax-home-page.jpg");
-    width: 100%;
-    height: 100%;
-    background-attachment: fixed;
-    background-position: calc(100% / 6);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+  background-image: url("../images/parallax-home-page.jpg");
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed;
+  background-position: calc(100% / 6);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  background-position: calc(100% / 5);
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.back-img2 {
+  background-image: url("../images/parallax-other-pages.jpg");
+  width: 100%;
+  height: 30%;
+  max-height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-position: center;
 }
 
 .titlehome {
-    height: 100%;
-    max-width: 1000px ;
-    width: 80%;
-    margin-left: 10%;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  height: 100%;
+  max-width: 1000px;
+  width: 80%;
+  margin-left: 10%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .titlehome h2, .quote-parallax h2 {
@@ -207,7 +226,6 @@ nav > a p {
     .titlehome p {
         font-size: 16px;
     }
-
 }
 
 .main-home {
@@ -219,7 +237,7 @@ nav > a p {
     box-shadow: 0px 0px 21px 8px rgba(43, 44, 44, 0.6);
 }
 
-.main-home-div {
+.main-home-div, .main-home2 div {
     max-width: 1200px;
     width: 90%;
     margin-left: auto;
@@ -484,7 +502,6 @@ nav > a p {
     }
 
     .hero-section {
-        margin-top: -50px;
         height: calc(100vh + 50px);
     }
 
@@ -757,7 +774,7 @@ footer {
     background-color: #868686;
 }
 
-footer > div, footer section {
+footer section, .the-footer-thing {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
@@ -807,4 +824,42 @@ footer figure h4 {
        flex-direction: column;
        gap: 20px;
     }
+}
+
+
+/* THE BLOGS AND ACTIVITIES PAGES START HERE  */
+
+.blog-main {
+    background-color: aqua;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 7%;
+    z-index: 2;
+    box-shadow: 0px 0px 21px 8px rgba(43, 44, 44, 0.6) !important;
+}
+.blog-title-divi {
+    height: 100%;
+    max-width: 1000px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+.blog-title-divi h2 {
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 4px 4px 8px rgba(22, 23, 24, 0.8);
+}
+@media only screen and (max-width: 678px) {
+    .blog-main {
+        margin-top: 15%;
+    }
+    .blog-title-divi h2 {
+      font-size: 25px;
+    }
+
+}
+footer {
+    z-index: 1;
 }
