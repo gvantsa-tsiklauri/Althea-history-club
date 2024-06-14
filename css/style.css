@@ -102,7 +102,7 @@ nav > a p {
     margin: auto 0;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 950px) {
     header nav > ul {
         flex-direction: column;
         align-items: flex-start;
@@ -365,30 +365,35 @@ nav > a p {
 .home-activities {
     margin-top: 100px;
 }
+
 .home-activities a:first-child {
     font-size: 30px;
     font-weight: 600;
     color: #986E36;
 }
+
 .home-activities header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
+
 .home-activities main {
     display: flex;
     gap: 20px;
     margin-top: 40px;
 }
-.home-activities main article {
+
+.home-activities article {
     border-radius: 20px;
     box-shadow: 10px 10px 35px -17px rgba(0,0,0,0.75);
     height: inherit;
 }
-#home-activity-fig-div1 {
+
+#home-activity-fig-div1, .home-activity-fig-div3 {
     display: flex;
     gap: 20px;
 }
+
 .activity-card-pic {
     background-position: center;
     background-repeat: no-repeat;
@@ -397,17 +402,27 @@ nav > a p {
     height: 200px;
     width: 100%;
 }
+
 .ac-p-1 {
     background-image: url(../images/activity1.jpg);
 }
+
 .ac-p-2 {
     background-image: url(../images/activity2.jpg);
 }
+
 .ac-p-3 {
-    background-image: url(../images/activity5.jpg);
-}
-.ac-p-4 {
     background-image: url(../images/activity3.jpg);
+}
+
+.ac-p-4 {
+    background-image: url(../images/activity4.jpg);
+}
+.ac-p-5 {
+  background-image: url(../images/activity5.jpg);
+}
+.ac-p-6 {
+  background-image: url(../images/activity6.jpg);
 }
 .activity-card-body {
     padding: 20px;
@@ -415,11 +430,13 @@ nav > a p {
     flex-direction: column;
     gap: 15px;
 }
+
 .activity-card-body h4 {
     font-size: 20px;
     font-weight: 600;
     color: #986E36;
 }
+
 .activity-card-body p {
     font-size: 18px;
     font-weight: 500;
@@ -430,55 +447,89 @@ nav > a p {
     display: none;
 }
 
+.activities-see-more-section {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.see-more-figure {
+    display: none;
+}
+.see-more-figure-active {
+    display: block;
+} 
+
 @media only screen and (max-width: 1000px) {
     .home-activities main {
         flex-direction: column !important;
     }
+
     .home-activities main aside article {
         display: block;
     }
+
     .ac-p-4 {
         flex: auto !important;
         height: 200px !important;
     }
+
     .home-activities aside, #home-activity-fig-div2 {
         display: none;
     }
+
     .home-activities .resp-fig {
         display: flex;
         gap: 20px;
     }
+
     .hero-section {
         margin-top: -50px;
         height: calc(100vh + 50px);
     }
+
+    .home-activity-fig-div3 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .home-activity-fig-div3 article {
+        flex: 1 1 calc(50% - 20px);
+        margin-bottom: 20px;
+    }
 }
+
 @media only screen and (max-width: 768px) {
     .home-activities a:first-child, .wwa-title {
         font-size: 25px !important;
     }
-    .home-activities .fa-chevron-right {
-        display: none;
-    }
-    .h-btn {
-        display: none;
-    }
 }
+
 @media only screen and (max-width: 600px) {
     #home-activity-fig-div1 {
         display: flex;
         gap: 20px;
         flex-direction: column;
-
     }
+
     .home-activities .resp-fig {
         flex-direction: column;
     }
+
     .home-activities article {
         max-width: 450px;
         margin: 0 auto;
     }
+
+    .home-activity-fig-div3 {
+        flex-direction: column;
+    }
+
+    .home-activity-fig-div3 article {
+        flex: 1 1 100%;
+    }
 }
+
 .quote-parallax {
     margin-top: 100px;
     height: 100vh;
@@ -522,10 +573,114 @@ nav > a p {
         font-size: 16px;
     }
 }
-.home-join-us {
+
+.blogs > header a:first-child {
+    font-size: 30px;
+    font-weight: 600;
+    color: #986E36;
+}
+.blogs article {
+    border-radius: 20px;
+    box-shadow: 10px 10px 35px -17px rgba(0,0,0,0.75);
+    height: inherit;
+}
+.blogs > main {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.blogs article {
+    padding: 40px;
+}
+.blog-title {
+    font-size: 25px;
+    font-weight: 500;
+    color: #986E36;
+    /* transition: 1s ease-in-out; */
+}
+.small-text {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.small-text p {
+    font-size: 14px;
+    color: gray;
+    font-weight: 400;
+}
+.small-text a, .small-text span {
+    font-size: 15px;
+    color: rgb(105, 104, 104);
+    font-weight: 600;
+}
+.blogs article main {
+    margin-bottom: 15px;
+}
+
+.blogs article main p {
+    font-size: 18px;
+    color: #474747;
+    line-height: 1.2;
+}
+
+
+.short-text {
+  display: none;
+}
+
+
+@media (max-width: 800px) {
+  .full-text {
+    display: none;
+  }
+  
+  .short-text {
+    display: inline;
+  }
+}
+
+@media (max-width: 400px) {
+  .full-text {
+    display: none;
+  }
+  
+  .short-text {
+    display: inline;
+  }
+}
+
+
+.contact-img {
+  background-image: url(../images/contact-image.jpg);
+  width: calc(100% / 2);
+  height: auto;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-main {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  .contact-img {
+    height: 200px;
+    width: 100%;
+  }
+  .contact-main form {
+    width: 100% !important;
+  }
+}
+
+
+
+
+.home-join-us, .blogs {
     margin-top: 100px;
 }
-.home-join-us h2 {
+.home-join-us header a, .contact header a {
     font-size: 30px;
     font-weight: 600;
     color: #986E36;
@@ -593,17 +748,26 @@ input:focus, textarea:focus {
         flex-direction: column;
     }
 }
+
+
+
 footer {
     padding: 40px;
     width: 100%;
     background-color: #868686;
 }
 
-footer > div {
+footer > div, footer section {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
 }
+
+footer section {
+  width: 100%;
+  max-width: 700px;
+}
+
 footer figure a:first-child {
     display: flex;
     gap: 10px;
@@ -632,12 +796,13 @@ footer figure h4 {
     font-weight: 600;
     color: #fff;
 }
-@media only screen and (max-width: 768px) {
-    footer > div figure:first-child {
-        display: none !important;
-    }
-}
 @media only screen and (max-width: 600px) {
+  footer section {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+@media only screen and (max-width: 850px) {
     footer > div  {
        flex-direction: column;
        gap: 20px;
