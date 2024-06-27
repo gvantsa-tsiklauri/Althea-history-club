@@ -63,8 +63,8 @@
       <div class="hero-section">
         <div class="back-img"></div>
         <div class="titlehome">
-          <h2 class="animate__animated animate__fadeInLeft" >ალთეა</h2>
-          <p class="animate__animated animate__fadeInLeft">სსიპ ილია ჭავჭავაძის სახელობის 23-ე საჯარო სკოლის ისტორიის კლუბი</p>
+          <h2>ალთეა</h2>
+          <p>სსიპ ილია ჭავჭავაძის სახელობის 23-ე საჯარო სკოლის ისტორიის კლუბი</p>
         </div>
       </div>
       <!-- ACTUAL MAIN THINGS -->
@@ -85,7 +85,7 @@
           <div class="circles">
             <figure>
               <div class="circle">
-                <i class="fa-solid fa-person-chalkboard" style="color: #ffffff;"></i>              </div>
+                <i class="fa-solid fa-person-chalkboard" style="color: #ffffff;"></i></div>
                 <span>ყოველკვირეული საინტერესო ინფორმაციით დატვირთული შეხვედრები</span>
             </figure>
             <figure>
@@ -106,67 +106,62 @@
             <header>
                 <a href="#activities">ჩატარებული აქტივობები</a>
             </header>
-            <main id="activities-container">
-                <!-- Activity cards will be appended here -->
-            </main>
+            <main id="activities-container"></main>
             <section class="activities-see-more-section">
                 <button onclick="activitySeeMore()" class="primary-button" id="see-more-activity-btn">
                     ნახე მეტი &nbsp;&nbsp; <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i>
                 </button>
             </section>
             <script>
-              let activities = [];  // Will hold the activities data from JSON
-              let currentIndex = 0;  // Current index to keep track of loaded activities
-              const activitiesPerLoad = 3;  // Number of activities to load per click
+              let activities = [];
+              let sortedIds = [];
+              let currentIndex = 0;
+              const activitiesPerLoad = 3;
               
               document.addEventListener("DOMContentLoaded", function() {
-                  // Fetch the activities data
                   fetch('pages/activities.json')
                       .then(response => response.json())
                       .then(data => {
-                          activities = Object.values(data);  // Assuming the JSON is an object with numerical keys
-                          renderActivities();  // Initial render
+                          const activityIds = Object.keys(data).map(Number);
+                          sortedIds = activityIds.sort((a, b) => b - a);
+                          activities = data;
+                          renderActivities();
                       })
                       .catch(error => console.error('Error fetching the JSON data:', error));
               });
               
               function renderActivities() {
                   const container = document.getElementById('activities-container');
-                  const fragment = document.createDocumentFragment();  // Use a fragment for better performance
+                  const fragment = document.createDocumentFragment();
+                  const end = Math.min(currentIndex + activitiesPerLoad, sortedIds.length);
               
-                  // Determine the number of activities to load
-                  const end = Math.min(currentIndex + activitiesPerLoad, activities.length);
                   for (let i = currentIndex; i < end; i++) {
-                      const activity = activities[i];
+                      const id = sortedIds[i];
+                      const activity = activities[id];
                       const article = document.createElement('article');
-              
-                      // Create the activity card content
                       article.innerHTML = `
                           <div class="activity-card-pic" style="background-image: url('${activity["img-src"]}');"></div>
                           <div class="activity-card-body">
                               <h4>${activity.title}</h4>
                               <p>${activity.body.substring(0, 100)}...</p>
-                              <a href="pages/activityPage.html?id=${i}" style="align-self: flex-end;" class="primary-button-sm">დეტალურად</a>
+                              <a href="pages/activityPage.html?id=${id}" style="align-self: flex-end;" class="primary-button-sm">დეტალურად</a>
                           </div>
                       `;
                       fragment.appendChild(article);
                   }
               
-                  container.appendChild(fragment);  // Append the fragment to the container
-                  currentIndex = end;  // Update the current index
+                  container.appendChild(fragment);
+                  currentIndex = end;
               }
               
               function activitySeeMore() {
-                  if (currentIndex < 9) {
+                  if (currentIndex < sortedIds.length) {
                       renderActivities();
-                      if (currentIndex = 9) {
-                        document.getElementById('see-more-activity-btn').innerHTML = 'ნახე უფრო მეტი  &nbsp;&nbsp; <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i> ';
-                      }
                   } else {
-                    window.location.href = 'pages/activities.html';
+                      window.location.href = 'pages/activities.html';
                   }
               }
-            </script>              
+              </script>              
           </div>
         
 
@@ -181,110 +176,66 @@
         <div class="main-home-div">
 
         <!-- BLOGS THING  -->
-
         <div class="blogs" id="blogs">
           <header>
             <a href="#blogs">ბლოგები</h2>
           </header>
-          <main>
-            <article>
-                <header>
-                    <a class="blog-title" href="pages/blogPage.html">ყოველდღიური ცხოვრება წარსულში: როგორ ცხოვრობდნენ ადამიანები</a>
-                </header>
-                <figure class="small-text">
-                    <p>ავტორი: <a href="#">ანასტასია ლომიძე</a>, თარიღი: <span>24 აპრილი, 2024</span></p>
-                </figure>
-                <main>
-                    <p>
-                        <span class="full-text">
-                            მიუხედავად იმისა, რომ ისტორია ხშირად ფოკუსირებულია გრანდიოზულ მოვლენებზე და ცნობილ ფიგურებზე, ჩვეულებრივი ადამიანების ყოველდღიური ცხოვრება ასახავს წარსულის სურათს. ძველი რომის მღელვარე ბაზრებიდან დაწყებული, შუა საუკუნეების ევროპის სოფლებიდან დასრულებული, ადამიანთა ყოველდღიური ცხოვრების, წეს-ჩვეულებებისა და გამოწვევების გაგება გვაწვდის ცნობებს ადამიანის...
-                        </span>
-                        <span class="short-text">
-                            მიუხედავად იმისა, რომ ისტორია ხშირად ფოკუსირებულია გრანდიოზულ მოვლენებზე და ცნობილ ფიგურებზე, ჩვეულებრივი ადამიანების ყოველდღიური ცხოვრება ასახავს წარსულის სურათს...
-                        </span>
-                    </p>
-                </main>
-                <a href="pages/blogPage.html"  class="primary-button-sm">დეტალურად &nbsp; &nbsp; <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></a>
-            </article>
-            <article>
-                <header>
-                    <a class="blog-title" href="pages/blogPage.html">დაკარგული და ნაპოვნი: უძველესი ცივილიზაციების ხელახლა აღმოჩენა</a>
-                </header>
-                <figure class="small-text">
-                    <p>ავტორი: <a href="#">მარიამ საკრიშვილი</a>, თარიღი: <span>7 მაისი, 2024</span></p>
-                </figure>
-                <main>
-                    <p>
-                        <span class="full-text">
-                            ისტორია უზარმაზარ თავსატეხს ჰგავს, ათასწლეულების მანძილზე მიმოფანტული ნაჭრებით. ძველმა ცივილიზაციებმა, როგორიცაა მესოპოტამიელები ან მაია, დატოვეს მინიშნებები მათი არსებობის შესახებ - ძეგლები, ნაწერები და არტეფაქტები, რომლებიც ყვებიან მათ ზღაპრებს. ამ ფრაგმენტების გაერთიანებით, ჩვენ აღმოვაჩენთ მათი საზოგადოებების, წეს-ჩვეულებებისა და მიღწევების უფრო ღრმა გაგებას...
-                        </span>
-                        <span class="short-text">
-                            ისტორია უზარმაზარ თავსატეხს ჰგავს, ათასწლეულების მანძილზე მიმოფანტული ნაჭრებით. ძველმა ცივილიზაციებმა, როგორიცაა მესოპოტამიელები ან მაია, დატოვეს მინიშნებები მათი არსებობის შესახებ...
-                        </span>
-                    </p>
-                </main>
-                <a href="pages/blogPage.html"  class="primary-button-sm">დეტალურად &nbsp; &nbsp; <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></a>
-            </article>
-            <figure id="see-more-activity-figure2" class="see-more-figure">
-                <article>
-                    <header>
-                        <a class="blog-title" href="pages/blogPage.html">წარმოუდგენელი მოგზაურობა: მკვლევარები, რომლებმაც შეცვალეს სამყარო</a>
-                    </header>
-                    <figure class="small-text">
-                        <p>ავტორი: <a href="#">გვანცა წიკლაური</a>, თარიღი: <span>5 თებერვალი, 2024</span></p>
-                    </figure>
-                    <main>
-                        <p>
-                            <span class="full-text">
-                                ძიების სულისკვეთებამ უბიძგა კაცობრიობას შეუცნობლობისკენ, დაწყებული ადრეული მეზღვაურებიდან, რომლებიც ნავიგაციას უწევდნენ ამოუცნობ ზღვებში, დამთავრებული ასტრონავტებით, რომლებიც ფეხს ადგამენ შორეულ პლანეტებზე. მკვლევარებმა, როგორიცაა მარკო პოლო და ნილ არმსტრონგი, გააფართოვეს ჩვენი გაგება სამყაროსა და სამყაროს მიღმა. მათი გამბედაობა და ცნობისმოყვარეობა...
-                            </span>
-                            <span class="short-text">
-                                ძიების სულისკვეთებამ უბიძგა კაცობრიობას შეუცნობლობისკენ, დაწყებული ადრეული მეზღვაურებიდან, რომლებიც ნავიგაციას უწევდნენ ამოუცნობ ზღვებში, დამთავრებული ასტრონავტებით, რომლებიც ფეხს ადგამენ შორეულ პლანეტებზე...
-                            </span>
-                        </p>
-                    </main>
-                    <a href="pages/blogPage.html"  class="primary-button-sm">დეტალურად &nbsp; &nbsp; <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></a>
-                </article>
-                <article>
-                    <header>
-                        <a class="blog-title" href="pages/blogPage.html">რევოლუციური გონება: მოაზროვნეები, რომლებმაც შეცვალეს ისტორია</a>
-                    </header>
-                    <figure class="small-text">
-                        <p>ავტორი: <a href="#">ეკატერინე ცაბაძე</a>, თარიღი: <span>24 ივნისი, 2024</span></p>
-                    </figure>
-                    <main>
-                        <p>
-                            <span class="full-text">
-                                მოაზროვნეებს შეუძლიათ რევოლუციური აზრების გაღვივება, დადგენილი ნორმების გამოწვევა და საზოგადოებების შეცვლა. ისტორიულმა პირებმა, როგორიცაა გალილეო გალილეი, რომელიც მხარს უჭერდა ჰელიოცენტრიზმს მიუხედავად წინააღმდეგობისა, ან მერი უოლსტონკრაფტმა, რომელიც მხარს უჭერდა ქალთა უფლებებს მე-18 საუკუნეში, გამოიწვია ინტელექტუალური რევოლუციები, რომლებიც...
-                            </span>
-                            <span class="short-text">
-                                მოაზროვნეებს შეუძლიათ რევოლუციური აზრების გაღვივება, დადგენილი ნორმების გამოწვევა და საზოგადოებების შეცვლა. ისტორიულმა პირებმა, როგორიცაა გალილეო გალილეი, რომელიც მხარს უჭერდა ჰელიოცენტრიზმს...
-                            </span>
-                        </p>
-                    </main>
-                    <a href="pages/blogPage.html"  class="primary-button-sm">დეტალურად &nbsp; &nbsp; <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></a>
-                </article>
-            </figure>
+          <main style=" display: flex; flex-direction: column; gap: 20px">
+            <div id="blogs-wrapper-home"></div>
             <section class="activities-see-more-section" style="margin-top: 0;">
               <button onclick=blogSeeMore() class="primary-button" id="see-more-blog-btn">ნახე მეტი  &nbsp;&nbsp;   <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></button>
-
-              <script>
-                function blogSeeMore() {
-                  const theFigureThing = document.getElementById('see-more-activity-figure2');
-                  const TheSeeMoreButton = document.getElementById('see-more-blog-btn');
-
-                  if (theFigureThing.classList.contains('see-more-figure')) {
-                    theFigureThing.classList.remove('see-more-figure');
-                    theFigureThing.classList.add('see-more-figure-active');
-                    TheSeeMoreButton.innerHTML = 'ნახე ნაკლები  &nbsp;&nbsp;   <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i>';
-                  } else {
-                    theFigureThing.classList.remove('see-more-figure-active');
-                    theFigureThing.classList.add('see-more-figure');
-                    TheSeeMoreButton.innerHTML = 'ნახე მეტი  &nbsp;&nbsp;   <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i>';
-                  }
-                }
-              </script>
             </section>
+            <script>
+              let blogs = [];
+              let bcurrentIndex = 0;
+              const blogsPerLoad = 3;
+              
+              document.addEventListener("DOMContentLoaded", function() {
+                  fetch('pages/blogs.json')
+                      .then(response => response.json())
+                      .then(data => {
+                          blogs = Object.values(data);
+                          renderBlogs();
+                      })
+                      .catch(error => console.error('Error fetching the JSON data:', error));
+              });
+              
+              function renderBlogs() {
+                  const container = document.getElementById('blogs-wrapper-home');
+                  const fragment = document.createDocumentFragment();
+                  const end = Math.min(bcurrentIndex + blogsPerLoad, blogs.length);
+              
+                  for (let i = bcurrentIndex; i < end; i++) {
+                      const blog = blogs[i];
+                      const article = document.createElement('article');
+                      article.innerHTML = `
+                          <header>
+                              <a class="blog-title" href="pages/blogPage.html">${blog.title}</a>
+                          </header>
+                          <figure class="small-text">
+                              <p>ავტორი: <a href="#">${blog.author}</a>, თარიღი: <span>${blog.date}</span></p>
+                          </figure>
+                          <main>
+                              <p>${blog.body.substring(0, 300)}...</p>
+                          </main>
+                          <a href="pages/blogPage.html?id=${i}" class="primary-button-sm">დეტალურად</a>
+                      `;
+                      fragment.appendChild(article);
+                  }
+              
+                  container.appendChild(fragment);
+                  bcurrentIndex = end;
+              }
+              
+              function blogSeeMore() {
+                  if (bcurrentIndex < blogs.length) {
+                      renderBlogs();
+                  } else {
+                      window.location.href = 'pages/blogs.html';
+                  }
+              }
+              </script>
+              
           </main>
         </div>
 
@@ -369,6 +320,7 @@
         </div>
       </section>
     </main>
+
     <!-- FOOTER STARTS HERE -->
     <footer>
       <div class="main-home-div">
