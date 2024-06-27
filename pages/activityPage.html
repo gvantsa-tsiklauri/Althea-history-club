@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://kit.fontawesome.com/9a19f5c611.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <!-- <script src="../activity-thing.js"></script> -->
 </head>
-<body class="the-blog-body">
+<body>
     <header class="first-header animate__animated animate__fadeInDown">
         <nav>
             <a href="../index.html">
@@ -17,22 +20,20 @@
             </a>
             <ul id="ulthing">
                 <li>
-                    <a href="../index.html" >მთავარი</a>
+                    <a href="../index.html">მთავარი</a>
                 </li>
                 <li>
-                    <a href="../index.html#about-us">ჩვენს შესახებ</a>
+                    <a href="aboutUs.html">ჩვენს შესახებ</a>
                 </li>
                 <li>
-                    <a href="../index.html#activities" class="nav-active">აქტივობები</a>
+                    <a href="activities.html" class="nav-active">აქტივობები</a>
+                    <div class="underline"></div>
                 </li>
                 <li>
-                    <a href="../index.html#blogs" >ბლოგები</a>
+                    <a href="blogs.html">ბლოგები</a>
                 </li>
                 <li>
-                    <a href="../index.html#contact">კონტაქტი</a>
-                </li>
-                <li>
-                    <a href="../index.html#joinUs">შემოგვიერთდი</a>
+                    <a href="contact.html">კონტაქტი</a>
                 </li>
             </ul>
             <div class="nav-burger">
@@ -55,27 +56,128 @@
             </script>
         </nav>
     </header>
-    <div class="blog-title-divi">
-        <h2>აქტივობის სათაური</h2>
-    </div>
-    <main class="blog-main">
-        <div class="main-home-div">
-            <article class="blog-section" >
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nihil quia quam iste fugiat reiciendis est doloribus maiores nam, mollitia quisquam iusto laudantium adipisci suscipit explicabo perferendis non molestias tempora! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est exercitationem adipisci, sapiente nobis, rerum optio repellendus officiis et culpa delectus eaque vero harum aut asperiores ipsa ullam cupiditate? Veniam, modi.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero sit recusandae, excepturi iusto laboriosam possimus aliquam saepe eos dolor maiores doloremque delectus voluptatum. Veniam, voluptatibus sed distinctio corporis deserunt eos. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis expedita, in inventore ex totam amet iusto, exercitationem facere, eligendi quae quos. Reprehenderit atque ea odio itaque, totam fugiat provident consequuntur!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero sit recusandae, excepturi iusto laboriosam possimus aliquam saepe eos dolor maiores doloremque delectus voluptatum. Veniam, voluptatibus sed distinctio corporis deserunt eos. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis expedita, in inventore ex totam amet iusto, exercitationem facere, eligendi quae quos. Reprehenderit atque ea odio itaque, totam fugiat provident consequuntur!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero sit recusandae, excepturi iusto laboriosam possimus aliquam saepe eos dolor maiores doloremque delectus voluptatum. Veniam, voluptatibus sed distinctio corporis deserunt eos. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis expedita, in inventore ex totam amet iusto, exercitationem facere, eligendi quae quos. Reprehenderit atque ea odio itaque, totam fugiat provident consequuntur!
     
-                </p>
-            </article>
+    <main id="home">
+      <!-- TITLE SECTION -->
+      <div id="activity-content">
+        <div class="temporary-blog">
+          <h1>იტვირთება....</h1>
         </div>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        fetch('./activities.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const activityContent = document.getElementById('activity-content');
+                const activityId = new URLSearchParams(window.location.search).get('id');
+                const activity = data[activityId]; // Access the activity directly using the ID
+
+                const bodyText = activity.body;
+                const halfLength = Math.ceil(bodyText.length / 2); // Half the length of the body text
+
+            // Find the index of the next dot after half the text
+            let splitIndex = halfLength;
+            for (let i = halfLength; i < bodyText.length; i++) {
+                if (bodyText[i] === '.') {
+                    splitIndex = i + 1; // Include the dot in the second part
+                    break;
+                }
+            }
+
+            const firstHalf = bodyText.substring(0, splitIndex);
+            const secondHalf = bodyText.substring(splitIndex);
+
+                if (activity) {
+                    const activityHtml = `
+                        <div class="main-home-div">
+                            <div id="activity-title-img" class="activity-title-img" style="background-image: url(${activity["img-src"]}); margin-top: 20px;"></div>
+                            <header class="activity-blog-header">
+                                <h2 id="activity-title">${activity.title}</h2>
+                                <figure class="small-text">
+                                    <p>ავტორი: <a href="#">${activity.author}</a>, თარიღი: <span id="activity-date">${activity.date}</span></p>
+                                </figure>
+                                <main class="activity-blog-main">
+                                    <p id="activity-body" class="activity-text">${firstHalf}</p>
+                                    <div id="activity-middle-imgs" class="activity-middle-imgs">
+                                        ${activity.middleImages && activity.middleImages["inside-img1"] ? `<div class="activity-mid-img" style="background-image: url(${activity.middleImages["inside-img1"]});"></div>` : ''}
+                                        ${activity.middleImages && activity.middleImages["inside-img2"] ? `<div class="activity-mid-img" style="background-image: url(${activity.middleImages["inside-img2"]});"></div>` : ''}
+                                    </div>
+                                    <p class="activity-text">${secondHalf}</p>
+                                    <div id="activity-bottom-carousel" class="activity-bottom-carousel">
+                                        ${activity.bottomCarouselImages && activity.bottomCarouselImages["inside-img1"] ? `<div class="small-carousel-div" style="background-image: url(${activity.bottomCarouselImages["inside-img1"]});"></div>` : ''}
+                                        ${activity.bottomCarouselImages && activity.bottomCarouselImages["inside-img2"] ? `<div class="small-carousel-div" style="background-image: url(${activity.bottomCarouselImages["inside-img2"]});"></div>` : ''}
+                                        ${activity.bottomCarouselImages && activity.bottomCarouselImages["inside-img3"] ? `<div class="small-carousel-div" style="background-image: url(${activity.bottomCarouselImages["inside-img3"]});"></div>` : ''}
+                                        ${activity.bottomCarouselImages && activity.bottomCarouselImages["inside-img4"] ? `<div class="small-carousel-div" style="background-image: url(${activity.bottomCarouselImages["inside-img4"]});"></div>` : ''}
+                                        ${activity.bottomCarouselImages && activity.bottomCarouselImages["inside-img5"] ? `<div class="small-carousel-div" style="background-image: url(${activity.bottomCarouselImages["inside-img5"]});"></div>` : ''}
+                                        ${activity.bottomCarouselImages && activity.bottomCarouselImages["inside-img6"] ? `<div class="small-carousel-div" style="background-image: url(${activity.bottomCarouselImages["inside-img6"]});"></div>` : ''}
+                                        ${activity.bottomCarouselImages && activity.bottomCarouselImages["inside-img7"] ? `<div class="small-carousel-div" style="background-image: url(${activity.bottomCarouselImages["inside-img7"]});"></div>` : ''}
+                                        ${activity.bottomCarouselImages && activity.bottomCarouselImages["inside-img8"] ? `<div class="small-carousel-div" style="background-image: url(${activity.bottomCarouselImages["inside-img8"]});"></div>` : ''}
+                                    </div>
+                                </main>
+                            </header>
+                        </div>
+                    `;
+                    activityContent.innerHTML = activityHtml;
+
+
+                    $('.activity-bottom-carousel').slick({
+                        centerMode: true,
+                        centerPadding: '50px',
+                        slidesToShow: 3,
+                        infinite: true,
+                        dots: true,
+                        arrows: false,
+                        speed: 500,
+                        adaptiveHeight: true,
+                        responsive: [
+                            {
+                                breakpoint: 900,
+                                settings: {
+                                    centerPadding: '30px',
+                                    slidesToShow: 3
+                                }
+                            },
+                            {
+                                breakpoint: 768,
+                                settings: {
+                                    centerPadding: '20px',
+                                    slidesToShow: 1
+                                }
+                            },
+                            {
+                                breakpoint: 480,
+                                settings: {
+                                    centerPadding: '10px',
+                                    slidesToShow: 1
+                                }
+                            }
+                        ]
+                    });
+                } else {
+                    activityContent.innerHTML = '<p>Activity not found</p>';
+                }
+            })
+            .catch(error => console.error('Error fetching the JSON data:', error));
+    });
+
+      </script>
+
+      <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     </main>
     
-   <footer>
+    <footer>
       <div class="main-home-div">
         <div class="the-footer-thing">
-          <figure >
+          <figure>
             <a href="index.html">
               <img src="../images/Logo.png" width="50px" alt="Club Logo">
               <p class="nav-title">ალთეა</p>
@@ -88,50 +190,49 @@
           <section>
             <figure>
               <ul>
-                <h4 style="margin-top: 20px; margin-bottom: 20px;">ნავიგაცია - გვერდები</h1>
+                <h4 style="margin-top: 20px; margin-bottom: 20px;">ნავიგაცია - გვერდები</h4>
                 <li>
-                    <a href="/index.html">მთავარი</a>
+                    <a href="../index.html">მთავარი</a>
                 </li>
                 <li>
-                    <a href="pages/about.html">ჩვენს შესახებ</a>
+                    <a href="about.html">ჩვენს შესახებ</a>
                 </li>
                 <li>
-                    <a href="pages/activities.html">აქტივობები</a>
+                    <a href="activities.html">აქტივობები</a>
                 </li>
                 <li>
-                    <a href="pages/blogPage.html">ბლოგები</a>
+                    <a href="blogs.html">ბლოგები</a>
                 </li>
                 <li>
-                    <a href="pages/contact.html">კონტაქტი</a>
+                    <a href="contact.html">კონტაქტი</a>
                 </li>
             </ul>
             </figure>
-            <figure style="display: flex; flex-direction: column; ">
-              <h4 style="margin-top: 20px; margin-bottom: 20px;">კონტაქტი</h1>
+            <figure style="display: flex; flex-direction: column;">
+              <h4 style="margin-top: 20px; margin-bottom: 20px;">კონტაქტი</h4>
                 <ul>
                   <li>
                     <i class="fa-solid fa-phone" style="color: #ffffff;"></i>
-                    <span  style=" margin-left: 10px; color: #fff; font-size: 16px;">555 555 555</span> 
+                    <span style="margin-left: 10px; color: #fff; font-size: 16px;">555 555 555</span> 
                   </li>
                   <li>
                     <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>
-                    <span  style=" margin-left: 10px; color: #fff; font-size: 16px;">althea@gmail.com</span> 
+                    <span style="margin-left: 10px; color: #fff; font-size: 16px;">althea.history@gmail.com</span> 
                   </li>
                    <li>
                     <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
-                    <span  style=" margin-left: 10px; color: #fff; font-size: 16px;">
-                      ქ.თბილისი,  ა. ჩიქობავას N17</span>
+                    <span style="margin-left: 10px; color: #fff; font-size: 16px;">ქ.თბილისი,  ა. ჩიქობავას N17</span>
                    </li>
                 </ul>
-                <h4 style="margin-top: 40px; margin-bottom: 20px;">სოციალური მედია</h1>
+                <h4 style="margin-top: 40px; margin-bottom: 20px;">სოციალური მედია</h4>
                   <ul>
                     <li>
                       <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
-                      <a href="https://facebook.com" style=" margin-left: 10px; color: #fff; font-size: 16px;">Facebook</a> 
+                      <a href="https://facebook.com" style="margin-left: 10px; color: #fff; font-size: 16px;">Facebook</a> 
                     </li>
                     <li>
                       <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
-                      <a href="https://twitter.com"  style=" margin-left: 10px; color: #fff; font-size: 16px;">X / Twitter</a> 
+                      <a href="https://twitter.com" style="margin-left: 10px; color: #fff; font-size: 16px;">X / Twitter</a> 
                     </li>
                   </ul>
             </figure>
@@ -141,4 +242,3 @@
       </div>
     </footer>
 </body>
-</html>

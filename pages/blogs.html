@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ალთეა - ჩვენს შესახებ</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://kit.fontawesome.com/9a19f5c611.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="first-header animate__animated animate__fadeInDown">
+        <nav>
+            <a href="../index.html">
+                <img src="../images/Logo.png" width="50px" alt="Club Logo">                
+                <p class="nav-title">ალთეა</p>
+            </a>
+            <ul id="ulthing">
+                <li>
+                    <a href="../index.html" >მთავარი</a>
+                </li>
+                <li>
+                    <a  href="aboutUs.html">ჩვენს შესახებ</a>
+
+                </li>
+                <li>
+                    <a href="activities.html" >აქტივობები</a>
+                </li>
+                <li>
+                    <a href="blogs.html" class="nav-active" >ბლოგები</a>
+                    <div class="underline"></div>
+                </li>
+                <li>
+                    <a href="contact.html">კონტაქტი</a>
+                </li>
+
+            </ul>
+            <div class="nav-burger">
+                <i class="fa-solid fa-bars-staggered" id="burger-icon" style="color: #ffffff;"></i>
+            </div>
+            <script>
+                document.getElementById('burger-icon').addEventListener('click', function() {
+                    const element = this;
+                    const ulthing = document.getElementById('ulthing');
+                    if (element.classList.contains('fa-bars-staggered')) {
+                        element.classList.remove('fa-bars-staggered');
+                        element.classList.add('fa-x');
+                        ulthing.classList.add('active');
+                    } else {
+                        element.classList.remove('fa-x');
+                        element.classList.add('fa-bars-staggered');
+                        ulthing.classList.remove('active');
+                    }
+                });
+            </script>
+        </nav>
+    </header>
+    <main id="home">
+        <!-- TITLE SECTION -->
+      <div class="hero-section2">
+        <div class="back-img2" style="background-image: url(../images/blog-bg.jpg); background-position:bottom; "></div>
+        <div class="titlehome2">
+        <h2>ბლოგები</h2>
+        </div>
+    </div>
+    <!-- ACTUAL MAIN THINGS -->
+    <section class="main-home">
+      <div class="main-home-div">
+        <div class="activities-little-text" style="margin-top: 50px;">
+          <p>ბლოგების გვერდი განკუთვნილია ჩვენი კლუბის წევრების მიერ დაწერილი მცირე სტატიებისთვის.</p>
+        </div>
+        <div class="blogs" style="margin-top: 50px;" >
+          <main id="blog-page-blog">
+          </main>
+          <script>
+              fetch('blogs.json')
+                  .then(response => response.json())
+                  .then(data => {
+                      const container = document.getElementById('blog-page-blog');
+ 
+                      const blogPosts = Object.values(data);
+          
+                      blogPosts.forEach(item => {
+                          const article = document.createElement('article');
+          
+                          const header = document.createElement('header');
+                          const titleLink = document.createElement('a');
+                          titleLink.className = 'blog-title';
+                          titleLink.href = 'pages/blogPage.html';
+                          titleLink.innerText = item.title;
+                          header.appendChild(titleLink);
+                          article.appendChild(header);
+          
+                          const figure = document.createElement('figure');
+                          figure.className = 'small-text';
+                          const author = document.createElement('p');
+                          author.innerHTML = `ავტორი: <a href="#">${item.author}</a>, თარიღი: <span>${item.date}</span>`;
+                          figure.appendChild(author);
+                          article.appendChild(figure);
+          
+                          const mainContent = document.createElement('main');
+                          const fullText = document.createElement('span');
+                          fullText.className = 'full-text2';
+                          fullText.innerText = item.body.length > 300 ? item.body.substring(0, 300) + '...' : item.body;
+                          mainContent.appendChild(fullText);
+          
+                          const shortText = document.createElement('span');
+                          shortText.className = 'short-text';
+                          shortText.innerText = item.body.length > 150 ? item.body.substring(0, 150) + '...' : item.body;
+                          mainContent.appendChild(shortText);
+          
+                          article.appendChild(mainContent);
+          
+                          const link = document.createElement('a');
+                          link.href = `blogPage.html?id=${item.id}`;
+                          link.className = 'primary-button-sm';
+                          link.innerHTML = 'დეტალურად &nbsp; &nbsp; <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i>';
+                          article.appendChild(link);
+          
+                          container.appendChild(article);
+                      });
+                  })
+                  .catch(error => console.error('Error fetching the JSON data:', error));
+          </script>
+          
+        </div>
+      </div>
+    </section>
+    </main>
+
+    
+  <!-- FOOTER STARTS HERE -->
+  <footer>
+    <div class="main-home-div">
+      <div class="the-footer-thing">
+        <figure >
+          <a href="../index.html">
+            <img src="../images/Logo.png" width="50px" alt="Club Logo">
+            <p class="nav-title">ალთეა</p>
+          </a>
+          <div style="margin-top: 20px; padding-right: 40px;">
+            <p style="margin-bottom: 20px; color: #fff;">ეს ვებ გვერდი შექმნილია გვანცა წიკლაურის მიერ.</p>
+            <a href="https://www.tbceducation.ge/"><img width="100px" src="../images/თიბისი.png" alt=""></a>
+          </div>
+        </figure>
+        <section>
+          <figure>
+            <ul>
+              <h4 style="margin-top: 20px; margin-bottom: 20px;">ნავიგაცია - გვერდები</h1>
+              <li>
+                  <a href="/index.html">მთავარი</a>
+              </li>
+              <li>
+                  <a href="pages/about.html">ჩვენს შესახებ</a>
+              </li>
+              <li>
+                  <a href="pages/activities.html">აქტივობები</a>
+              </li>
+              <li>
+                  <a href="pages/blogPage.html">ბლოგები</a>
+              </li>
+              <li>
+                  <a href="pages/contact.html">კონტაქტი</a>
+              </li>
+          </ul>
+          </figure>
+          <figure style="display: flex; flex-direction: column; ">
+            <h4 style="margin-top: 20px; margin-bottom: 20px;">კონტაქტი</h1>
+              <ul>
+                <li>
+                  <i class="fa-solid fa-phone" style="color: #ffffff;"></i>
+                  <span  style=" margin-left: 10px; color: #fff; font-size: 16px;">555 555 555</span> 
+                </li>
+                <li>
+                  <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>
+                  <span  style=" margin-left: 10px; color: #fff; font-size: 16px;">althea.history@gmail.com</span> 
+                </li>
+                  <li>
+                  <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
+                  <span  style=" margin-left: 10px; color: #fff; font-size: 16px;">
+                    ქ.თბილისი,  ა. ჩიქობავას N17</span>
+                  </li>
+              </ul>
+              <h4 style="margin-top: 40px; margin-bottom: 20px;">სოციალური მედია</h1>
+                <ul>
+                  <li>
+                    <i class="fa-brands fa-facebook" style="color: #ffffff;"></i>
+                    <a href="https://facebook.com" style=" margin-left: 10px; color: #fff; font-size: 16px;">Facebook</a> 
+                  </li>
+                  <li>
+                    <i class="fa-brands fa-x-twitter" style="color: #ffffff;"></i>
+                    <a href="https://twitter.com"  style=" margin-left: 10px; color: #fff; font-size: 16px;">X / Twitter</a> 
+                  </li>
+                </ul>
+          </figure>
+        </section>
+      </div>
+      <span style="color: #fff; font-size: 18px;">&copy; Copyright 2024, Althea - history club. all rights reserved</span>
+    </div>
+  </footer>
+</body>
+</html>
