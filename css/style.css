@@ -394,12 +394,16 @@
   }
   .circles figure span {
     max-width: 400px;
+    font-size: 17px;
   }
   .fa-landmark, .fa-person-chalkboard, .fa-users {
     font-size: 30px;
   }
   .circle {
     padding: 40px;
+  }
+  .activity-card-body h4 {
+    font-size: 18px !important;
   }
   }.home-activities {
     margin-top: 100px;
@@ -457,6 +461,7 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 1.1;
+    color: #474747;
   }
   .activities-see-more-section {
     margin-top: 50px;
@@ -498,9 +503,21 @@
   }
   }
   @media only screen and (max-width:768px) {
-    .home-activities a:first-child, .wwa-title {
-    font-size: 25px!important;
+    .home-activities a:first-child, .wwa-title, .blogs > header a:first-child {
+    font-size: 22px!important;
   }
+    .home-who-we-are p {
+      font-size: 16px;
+    }
+    .primary-button {
+      font-size: 16px;
+    }
+    .activity-card-body p {
+      font-size: 16px;
+    }
+    .primary-button-sm {
+      font-size: 15px;
+    }
   }
   @media only screen and (max-width:600px) {
     .home-activities article {
@@ -631,11 +648,25 @@
         -ms-flex-align: center;
             align-items: center;
   }
+  .full-text2 {
+    font-size: 16px;
+  }
+  .blog-title {
+    font-size: 18px !important;
+  }
+  .blogs article main p {
+    font-size: 16px;
+  }
   .contact-img {
     height: 200px;
     width: 100%}
   .contact-main form {
     width: 100%!important;
+  }
+
+  
+  .active-members a:first-child, .founders a:first-child, .our-mission a {
+    font-size: 22px !important;
   }
   }.blogs, .home-join-us {
     margin-top: 100px;
@@ -835,6 +866,16 @@
     text-shadow: 4px 4px 8px rgba(22, 23, 24, .8);
   }
   @media only screen and (max-width:678px) {
+    .contact header a, .home-join-us header a {
+      font-size: 22px;
+    }
+    .home-join-us label {
+      font-size: 17px;
+      color: #333;
+    }  
+    footer figure h4 {
+      font-size: 17px;
+    }
     .blog-main {
     margin-top: 15%}
   .blog-title-divi h2 {
@@ -1034,7 +1075,9 @@
     height: 300px;
   }
   .home-who-we-are3 div {
-    max-width: 100%}
+    max-width: 100%;
+    padding: 0;
+  }
   }.founders {
     margin-top: 100px;
   }
@@ -1088,19 +1131,34 @@
     grid-template-columns: repeat(2, 1fr);
   }
   }
-  @media only screen and (max-width:678px) {
+  @media only screen and (max-width:768px) {
     .founder-pic1 {
     max-width: 100px;
     height: 100px;
   }
   .founder>h4 {
-    font-size: 19px;
+    font-size: 17px;
+  }
+  .founder>span{
+    font-size: 15px;
+  }
+  
+  .active-members ul li p {
+    font-size: 16px !important;
+  }
+  .active-member-pic {
+    width: 65px !important;
+    height: 65px !important;
   }
   .the-footer-thing {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .home-who-we-are3 div p, 
+  .activities-little-text p {
+    font-size: 16px;
   }
   }.active-members {
     margin-top: 100px;
@@ -1155,7 +1213,6 @@
   }
   .active-members ul li {
     padding: 10px 0;
-    gap: 10px;
   }
   .active-members ul {
     -ms-grid-columns: 1fr;
@@ -1245,6 +1302,7 @@
     color: #474747;
     padding: 0 50px;
     line-height: 1.4;
+    margin-top: 10px;
   }
   .activity-middle-imgs {
     display: -webkit-box;
@@ -1297,3 +1355,34 @@
     color: #986e36;
     font-weight: 600;
   }
+
+
+
+  .small-carousel-div{
+    height: 250px !important;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slick-slide {
+    transition: transform 0.3s, z-index 0.3s;
+}
+
+.slick-center {
+    transform: scale(1);
+    height: 350px;
+    z-index: 2;
+    box-shadow: 10px 10px 35px -17px rgba(0,0,0,1);
+}
+
+.slick-slide:not(.slick-center) {
+    transform: scale(0.9);
+    z-index: 1;
+    opacity: 0.9;
+}

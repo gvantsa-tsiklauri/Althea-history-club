@@ -13,7 +13,7 @@
     <header  class=" animate__animated animate__fadeInDown first-header">
         <nav>
             <a href="index.html">
-                <img src="images/Logo.png" width="50px" alt="Club Logo">
+                <img src="../images/Logo.png" width="50px" alt="Club Logo">
                 <p class="nav-title">ალთეა</p>
             </a>
             <ul id="ulthing">
@@ -22,16 +22,16 @@
                     <div class="underline"></div>
                 </li>
                 <li>
-                    <a href="pages/aboutUs.html">ჩვენს შესახებ</a>
+                    <a href="aboutUs.html">ჩვენს შესახებ</a>
                 </li>
                 <li>
-                    <a href="pages/activities.html">აქტივობები</a>
+                    <a href="activities.html">აქტივობები</a>
                 </li>
                 <li>
-                    <a href="pages/blogs.html">ბლოგები</a>
+                    <a href="blogs.html">ბლოგები</a>
                 </li>
                 <li>
-                    <a href="pages/contact.html">კონტაქტი</a>
+                    <a href="contact.html">კონტაქტი</a>
                 </li>
             </ul>
             <div class="nav-burger">
@@ -75,8 +75,8 @@
           <article class="home-who-we-are" id="about-us">
             <figure>
               <a class="wwa-title" href="#about-us">ალთეა - ისტორიის კლუბი</a>
-              <p>ალთეა ჩამოყალიბდა 2024 წელს, იტორიის მოყვარულების მიერ, ისტორიის მოყვარულთათვის. კლუბში ყოველდღიურად იგეგმება მრავალი აქტივობა, ტარდება მრავალი ლექცია, სადაც ახალგაზრდებს საშუალება ეძლევათ ისაუბრონ მათ საყვარელ თემებზე და გაეცნონ მათი თანატოლების მიერ<a href="/pages/about.html" style=" font-weight: 600; color: rgb(69, 69, 69);">....</a> <p>
-              <a href="pages/aboutUs.html" class="primary-button">ნახე მეტი  &nbsp;&nbsp;   <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></a>
+              <p>ალთეა ჩამოყალიბდა 2024 წელს, იტორიის მოყვარულების მიერ, ისტორიის მოყვარულთათვის. კლუბში ყოველდღიურად იგეგმება მრავალი აქტივობა, ტარდება მრავალი ლექცია, სადაც ახალგაზრდებს საშუალება ეძლევათ ისაუბრონ მათ საყვარელ თემებზე და გაეცნონ მათი თანატოლების მიერ<a href="/about.html" style=" font-weight: 600; color: rgb(69, 69, 69);">....</a> <p>
+              <a href="aboutUs.html" class="primary-button">ნახე მეტი  &nbsp;&nbsp;   <i class="fa-solid fa-chevron-right" style="color: #ffffff;"></i></a>
             </figure>
             <aside id="img2" ></aside>
           </article>
@@ -119,7 +119,7 @@
               const activitiesPerLoad = 3;
               
               document.addEventListener("DOMContentLoaded", function() {
-                  fetch('pages/activities.json')
+                  fetch('activities.json')
                       .then(response => response.json())
                       .then(data => {
                           const activityIds = Object.keys(data).map(Number);
@@ -144,7 +144,7 @@
                           <div class="activity-card-body">
                               <h4>${activity.title}</h4>
                               <p>${activity.body.substring(0, 100)}...</p>
-                              <a href="pages/activityPage.html?id=${id}" style="align-self: flex-end;" class="primary-button-sm">დეტალურად</a>
+                              <a href="activityPage.html?id=${id}" style="align-self: flex-end;" class="primary-button-sm">დეტალურად</a>
                           </div>
                       `;
                       fragment.appendChild(article);
@@ -158,7 +158,7 @@
                   if (currentIndex < sortedIds.length) {
                       renderActivities();
                   } else {
-                      window.location.href = 'pages/activities.html';
+                      window.location.href = 'activities.html';
                   }
               }
               </script>              
@@ -191,7 +191,7 @@
               const blogsPerLoad = 3;
               
               document.addEventListener("DOMContentLoaded", function() {
-                  fetch('pages/blogs.json')
+                  fetch('blogs.json')
                       .then(response => response.json())
                       .then(data => {
                           blogs = Object.values(data);
@@ -210,7 +210,7 @@
                       const article = document.createElement('article');
                       article.innerHTML = `
                           <header>
-                              <a class="blog-title" href="pages/blogPage.html">${blog.title}</a>
+                              <a class="blog-title" href="blogPage.html">${blog.title}</a>
                           </header>
                           <figure class="small-text">
                               <p>ავტორი: <a href="#">${blog.author}</a>, თარიღი: <span>${blog.date}</span></p>
@@ -218,7 +218,7 @@
                           <main>
                               <p>${blog.body.substring(0, 300)}...</p>
                           </main>
-                          <a href="pages/blogPage.html?id=${i}" class="primary-button-sm">დეტალურად</a>
+                          <a href="blogPage.html?id=${i}" class="primary-button-sm">დეტალურად</a>
                       `;
                       fragment.appendChild(article);
                   }
@@ -231,7 +231,7 @@
                   if (bcurrentIndex < blogs.length) {
                       renderBlogs();
                   } else {
-                      window.location.href = 'pages/blogs.html';
+                      window.location.href = 'blogs.html';
                   }
               }
               </script>
@@ -272,7 +272,7 @@
                 <!--  -->
             </header>
             <main>
-              <!-- <iframe class="the-registration-form" width="80%" height="800px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=POnSYT1CtEOPIxWAwjQZUp_fFpEPv7VAnrXV365O5itUOTg0OVkxTFo2QTFYNlE3RzBJTVFERDAzOC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe> -->
+              <!-- <iframe class="the-registration-form" width="80%" height="800px" src="https://forms.office.com/pages/ResponsePage.aspx?id=POnSYT1CtEOPIxWAwjQZUp_fFpEPv7VAnrXV365O5itUOTg0OVkxTFo2QTFYNlE3RzBJTVFERDAzOC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe> -->
                <form action="">
                 <figure>
                   <div class="input-duo">
@@ -343,16 +343,16 @@
                     <a href="index.html">მთავარი</a>
                 </li>
                 <li>
-                    <a href="pages/about.html">ჩვენს შესახებ</a>
+                    <a href="about.html">ჩვენს შესახებ</a>
                 </li>
                 <li>
-                    <a href="pages/activities.html">აქტივობები</a>
+                    <a href="activities.html">აქტივობები</a>
                 </li>
                 <li>
-                    <a href="pages/blogPage.html">ბლოგები</a>
+                    <a href="blogs.html">ბლოგები</a>
                 </li>
                 <li>
-                    <a href="pages/contact.html">კონტაქტი</a>
+                    <a href="contact.html">კონტაქტი</a>
                 </li>
             </ul>
             </figure>
