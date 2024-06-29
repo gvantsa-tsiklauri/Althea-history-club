@@ -117,6 +117,7 @@
               let sortedIds = [];
               let currentIndex = 0;
               const activitiesPerLoad = 3;
+              const maxCardsToShow = 6;
               
               document.addEventListener("DOMContentLoaded", function() {
                   fetch('activities.json')
@@ -152,6 +153,10 @@
               
                   container.appendChild(fragment);
                   currentIndex = end;
+                  
+                  if (currentIndex > maxCardsToShow) {
+                      window.location.href = 'activities.html';
+                  }
               }
               
               function activitySeeMore() {
@@ -161,7 +166,9 @@
                       window.location.href = 'activities.html';
                   }
               }
-              </script>              
+            </script>
+            
+                      
           </div>
         
 

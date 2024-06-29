@@ -144,7 +144,7 @@
   }
   }@media only screen and (max-width:768px) {
     nav>a p {
-    font-size: 18px;
+    font-size: 17px;
   }
   nav>a img {
     width: 30px;
@@ -213,7 +213,7 @@
     font-size: 40px;
   }
   .titlehome p {
-    font-size: 16px;
+    font-size: 15px;
   }
   }.main-home {
     width: 100%;
@@ -394,7 +394,7 @@
   }
   .circles figure span {
     max-width: 400px;
-    font-size: 17px;
+    font-size: 15px;
   }
   .fa-landmark, .fa-person-chalkboard, .fa-users {
     font-size: 30px;
@@ -403,7 +403,7 @@
     padding: 40px;
   }
   .activity-card-body h4 {
-    font-size: 18px !important;
+    font-size: 17px !important;
   }
   }.home-activities {
     margin-top: 100px;
@@ -504,16 +504,16 @@
   }
   @media only screen and (max-width:768px) {
     .home-activities a:first-child, .wwa-title, .blogs > header a:first-child {
-    font-size: 22px!important;
+    font-size: 20px!important;
   }
     .home-who-we-are p {
-      font-size: 16px;
+      font-size: 15px;
     }
     .primary-button {
-      font-size: 16px;
+      font-size: 15px;
     }
     .activity-card-body p {
-      font-size: 16px;
+      font-size: 15px;
     }
     .primary-button-sm {
       font-size: 15px;
@@ -649,13 +649,13 @@
             align-items: center;
   }
   .full-text2 {
-    font-size: 16px;
+    font-size: 15px;
   }
   .blog-title {
     font-size: 18px !important;
   }
   .blogs article main p {
-    font-size: 16px;
+    font-size: 15px;
   }
   .contact-img {
     height: 200px;
@@ -666,7 +666,7 @@
 
   
   .active-members a:first-child, .founders a:first-child, .our-mission a {
-    font-size: 22px !important;
+    font-size: 20px !important;
   }
   }.blogs, .home-join-us {
     margin-top: 100px;
@@ -733,23 +733,23 @@
   }
   .home-join-us input::-webkit-input-placeholder, .home-join-us textarea::-webkit-input-placeholder {
     color: #6d6a6a;
-    font-size: 16px;
+    font-size: 15px;
   }
   .home-join-us input::-moz-placeholder, .home-join-us textarea::-moz-placeholder {
     color: #6d6a6a;
-    font-size: 16px;
+    font-size: 15px;
   }
   .home-join-us input:-ms-input-placeholder, .home-join-us textarea:-ms-input-placeholder {
     color: #6d6a6a;
-    font-size: 16px;
+    font-size: 15px;
   }
   .home-join-us input::-ms-input-placeholder, .home-join-us textarea::-ms-input-placeholder {
     color: #6d6a6a;
-    font-size: 16px;
+    font-size: 15px;
   }
   .home-join-us input::placeholder, .home-join-us textarea::placeholder, .specific-placeholder {
     color: #6d6a6a;
-    font-size: 16px;
+    font-size: 15px;
   }
   .the-submit-button {
     background-color: #986e36;
@@ -843,6 +843,9 @@
             flex-direction: column;
     gap: 20px;
   }
+  .home-join-us form {
+      padding: 20px;
+  }
   }.blog-main {
     width: 100%;
     padding-top: 50px;
@@ -867,7 +870,7 @@
   }
   @media only screen and (max-width:678px) {
     .contact header a, .home-join-us header a {
-      font-size: 22px;
+      font-size: 20px;
     }
     .home-join-us label {
       font-size: 17px;
@@ -1004,7 +1007,7 @@
     width: 80%}
   }@media only screen and (max-width:678px) {
     .home-who-we-are2 p {
-    font-size: 16px;
+    font-size: 15px;
   }
   .first-about h2 {
     font-size: 20px;
@@ -1137,7 +1140,7 @@
     height: 100px;
   }
   .founder>h4 {
-    font-size: 17px;
+    font-size: 16px;
   }
   .founder>span{
     font-size: 15px;
@@ -1158,7 +1161,7 @@
   }
   .home-who-we-are3 div p, 
   .activities-little-text p {
-    font-size: 16px;
+    font-size: 15px;
   }
   }.active-members {
     margin-top: 100px;
@@ -1334,7 +1337,7 @@
   }
   @media (max-width:992px) {
     .activity-text {
-    font-size: 16px;
+    font-size: 15px;
     color: #474747;
     padding: 0;
   }
@@ -1356,8 +1359,12 @@
     font-weight: 600;
   }
 
+  @media (max-width:768px) {
 
-
+  .activity-blog-header h2 {
+    font-size: 20px;
+  }
+  }
   .small-carousel-div{
     height: 250px !important;
     width: auto;
