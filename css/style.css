@@ -1364,6 +1364,10 @@
   .activity-blog-header h2 {
     font-size: 20px;
   }
+  
+.blogs article {
+  padding: 20px;
+}
   }
   .small-carousel-div{
     height: 250px !important;
